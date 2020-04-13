@@ -22,14 +22,13 @@ def check(a):
         return True
     else:
         return False
+
 def boardfull(a):
     flag=True
-
     for i in a:
         if((i!='X') or (i!='O')):
             flag=False
             break
-
     return flag
             
 def player1_input():
@@ -52,7 +51,7 @@ if __name__=='__main__':
 
         while(choice=='Y' or choice=='y'):
             print("Game starting")
-            board=['1','2','3','4','5','6' ,'7' ,'8' ,'9' ]
+            board=[1,2,3,4,5,6,7,8,9]
             show_board(board)
             while(True):
 
@@ -63,7 +62,7 @@ if __name__=='__main__':
                 if(check(board)):
                     print("------Player 1 wins------")
                     break
-                
+
                 if(boardfull(board)):
                     print("------Draw------")
                     break
