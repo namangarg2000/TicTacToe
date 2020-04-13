@@ -24,12 +24,11 @@ def check(a):
         return False
 
 def boardfull(a):
-    flag=True
-    for i in a:
-        if((i!='X') or (i!='O')):
-            flag=False
-            break
-    return flag
+    for i in range(9):
+        if((a[i]==1 or a[i]==2 or a[i]==3 or a[i]==4 or a[i]==5 or a[i]==6  or a[i]==7 or a[i]==8 or a[i]==9)):
+            return False
+            
+    return True
             
 def player1_input():
    player1 = int(input("Enter position for player 1:"))
@@ -63,7 +62,7 @@ if __name__=='__main__':
                     print("------Player 1 wins------")
                     break
 
-                if(boardfull(board)):
+                elif(boardfull(board)):
                     print("------Draw------")
                     break
                    
@@ -74,6 +73,10 @@ if __name__=='__main__':
                 if(check(board)):
                     print("------Player 2 wins------")
                     break
+                elif(boardfull(board)):
+                    print("------Draw------")
+                    break
+                
 
             choice=input("Start a new game?(y/n)")
             if(choice=='y' or choice=='Y'):
