@@ -1,19 +1,39 @@
-def show_board():
-    print(board)
+def show_board(board):
+    print(f" {board[0]} | {board[1]} | {board[2]} ")
+    print(f"-----------")
+    print(f" {board[3]} | {board[4]} | {board[5]} ")
+    print(f"-----------")
+    print(f" {board[6]} | {board[7]} | {board[8]} ")
 
-def check():
-    pass
+def check(a):
+    if(a[0]==a[1] and a[1]==a[2]):
+        return True
+    elif(a[3]==a[4] and a[4]==a[5]):
+        return True
+    elif(a[6]==a[7] and a[7]==a[8]):
+        return True
+    elif(a[0]==a[3] and a[3]==a[6]):
+        return True    
+    elif(a[1]==a[4] and a[4]==a[7]):
+        return True
+    elif (a[0]==a[4] and a[4]==a[8]):
+        return True
+    elif (a[2]==a[4] and a[4]==a[6]):
+        return True
+    else:
+        return False
+
 
 def player1_input():
-   player1 = int(input("Enter position for player 1"))
+   player1 = int(input("Enter position for player 1:"))
    return player1
 
 def player2_input():
-    player2=int(input("Enter position for player 2"))
+    player2=int(input("Enter position for player 2:"))
     return player2
 
 
-board=['1','2','3','4','5','6' ,'7' ,'8' ,'9' ]
+#board=['1','2','3','4','5','6' ,'7' ,'8' ,'9' ]
 
 if __name__=='__main__':
 
@@ -25,25 +45,25 @@ if __name__=='__main__':
         while(choice=='Y' or choice=='y'):
             print("Game starting")
             board=['1','2','3','4','5','6' ,'7' ,'8' ,'9' ]
+            show_board(board)
             while(True):
 
                 player1=player1_input()
                 board[player1-1]='X'
-                show_board()
-                if(check()):
-                    print("Player 1 wins")
+                show_board(board)
+                if(check(board)):
+                    print("------Player 1 wins------")
                     break
                 
                 player2=player2_input()
                 board[player2-1]='O'
-                show_board()
-                if(check()):
-                    print("Player 2 wins")
+                show_board(board)
+                if(check(board)):
+                    print("------Player 2 wins------")
                     break
 
             choice=input("Start a new game?(y/n)")
-            
+        print("Game Ending")    
 
     else:
-        print("Game Ending")
         exit(0)
