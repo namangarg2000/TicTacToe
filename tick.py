@@ -5,6 +5,7 @@ def show_board(board):
     print(f"-----------")
     print(f" {board[6]} | {board[7]} | {board[8]} ")
 
+
 def check(a):
     if(a[0]==a[1] and a[1]==a[2]):
         return True
@@ -32,10 +33,15 @@ def boardfull(a):
             
 def player1_input():
    player1 = int(input("Enter position for player 1:"))
+   while(player1<1 or player1>9 ):
+        player1=int(input("Enter a valid position"))
+
    return player1
 
 def player2_input():
     player2=int(input("Enter position for player 2:"))
+    while(player2<1 or player2>9 ):
+        player2=int(input("Enter a valid position:"))
     return player2
 
 
