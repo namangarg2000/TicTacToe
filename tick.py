@@ -20,19 +20,30 @@ if __name__=='__main__':
     choice=input("Start the game?(y/n)")
     if(choice=='Y' or choice=='y'):
         
-        print("Game starting")
+        
 
         while(choice=='Y' or choice=='y'):
+            print("Game starting")
             board=['1','2','3','4','5','6' ,'7' ,'8' ,'9' ]
-            player1=player1_input()
+            while(True):
 
-            board[player1-1]='X'
-            check()
-            show_board()
+                player1=player1_input()
+                board[player1-1]='X'
+                show_board()
+                if(check()):
+                    print("Player 1 wins")
+                    break
+                
+                player2=player2_input()
+                board[player2-1]='O'
+                show_board()
+                if(check()):
+                    print("Player 2 wins")
+                    break
 
             choice=input("Start a new game?(y/n)")
-
+            
 
     else:
-        #print("Game end")
+        print("Game Ending")
         exit(0)
