@@ -22,8 +22,16 @@ def check(a):
         return True
     else:
         return False
+def boardfull(a):
+    flag=True
 
+    for i in a:
+        if((i!='X') or (i!='O')):
+            flag=False
+            break
 
+    return flag
+            
 def player1_input():
    player1 = int(input("Enter position for player 1:"))
    return player1
@@ -50,19 +58,27 @@ if __name__=='__main__':
 
                 player1=player1_input()
                 board[player1-1]='X'
+                print('\n'*100)
                 show_board(board)
                 if(check(board)):
                     print("------Player 1 wins------")
                     break
                 
+                if(boardfull(board)):
+                    print("------Draw------")
+                    break
+                   
                 player2=player2_input()
                 board[player2-1]='O'
+                print('\n'*100)
                 show_board(board)
                 if(check(board)):
                     print("------Player 2 wins------")
                     break
 
             choice=input("Start a new game?(y/n)")
+            if(choice=='y' or choice=='Y'):
+                print('\n'*100)
         print("Game Ending")    
 
     else:
