@@ -8,6 +8,14 @@ def clear():
     else:
         _ = system('clear')
 
+def illegalUpdate(a,inval):
+    if(inval<1 or inval>9):
+        return True
+    elif( (a[inval-1]=='X') or (a[inval-1]=='O') ):
+        return True
+    else:
+        return False
+    
 
 def show_board(board):
     print(f" {board[0]} | {board[1]} | {board[2]} ")
@@ -44,16 +52,16 @@ def boardfull(a):
             
     return True
             
-def player1_input():
+def player1_input(a):
    player1 = int(input("Enter position for player 1:"))
-   while(player1<1 or player1>9 ):
+   while(illegalUpdate(a,player1)):
         player1=int(input("Enter a valid position"))
 
    return player1
 
-def player2_input():
+def player2_input(a):
     player2=int(input("Enter position for player 2:"))
-    while(player2<1 or player2>9 ):
+    while(illegalUpdate(a,player2)):
         player2=int(input("Enter a valid position:"))
     return player2
 
@@ -70,7 +78,7 @@ if __name__=='__main__':
             show_board(board)
             while(True):
 
-                player1=player1_input()
+                player1=player1_input(board)
                 board[player1-1]='X'
                 #print('\n'*100)
                 clear()
@@ -83,7 +91,7 @@ if __name__=='__main__':
                     print("------Draw------")
                     break
                    
-                player2=player2_input()
+                player2=player2_input(board)
                 board[player2-1]='O'
                 #print('\n'*100)
                 clear()
