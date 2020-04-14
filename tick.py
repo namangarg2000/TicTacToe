@@ -55,7 +55,7 @@ def boardfull(a):
 def player1_input(a):
    player1 = int(input("Enter position for player 1:"))
    while(illegalUpdate(a,player1)):
-        player1=int(input("Enter a valid position"))
+        player1=int(input("Enter a valid position:"))
 
    return player1
 
